@@ -9,3 +9,36 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## 1. Confidence intervals
+
+This is a one sample t-test but it used the default that the mean population length is 0 inches, which makes no sense.
+```{r}
+otter_length <- c(38, 41, 50, 67, 32, 47, 45, 65, 56)
+
+t.test(otter_length)
+```
+
+
+## t-test (1-sample t-test)
+
+If you go to the console and type in ?t.test it will show you how to code this function and the defaults.
+
+When I type "otter_length <-" this means that the output will go onto a table in the environment table. If I want to see it on the markdown document, I need to call it.  Which means I type just the name "otter_test".
+
+See a claim: mean otter length is 50 inches
+
+```{r}
+otter_test <- t.test(x=otter_length, mu = 50)
+otter_test
+```
+
+## t-test (2-sample t-test)
+
+confidence interval for difference of means is not often reported
+
+```{r}
+desert_bighorns <- c(32, 44, 18, 26, 50, 33, 42, 40)
+sierra_bighorns <- c(28, 31, 40, 42, 26, 29, 31)
+
+t.test(x = desert_bighorns, y = sierra_bighorns)
+```

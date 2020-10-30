@@ -383,7 +383,62 @@ summary {
 </div>
 
 
+<div id="confidence-intervals" class="section level2">
+<h2>1. Confidence intervals</h2>
+<p>This is a one sample t-test but it used the default that the mean population length is 0 inches, which makes no sense.</p>
+<pre class="r"><code>otter_length &lt;- c(38, 41, 50, 67, 32, 47, 45, 65, 56)
 
+t.test(otter_length)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  otter_length
+## t = 12.402, df = 8, p-value = 1.668e-06
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  39.88877 58.11123
+## sample estimates:
+## mean of x 
+##        49</code></pre>
+</div>
+<div id="t-test-1-sample-t-test" class="section level2">
+<h2>t-test (1-sample t-test)</h2>
+<p>If you go to the console and type in ?t.test it will show you how to code this function and the defaults.</p>
+<p>When I type “otter_length &lt;-” this means that the output will go onto a table in the environment table. If I want to see it on the markdown document, I need to call it. Which means I type just the name “otter_test”.</p>
+<p>See a claim: mean otter length is 50 inches</p>
+<pre class="r"><code>otter_test &lt;- t.test(x=otter_length, mu = 50)
+otter_test</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  otter_length
+## t = -0.25309, df = 8, p-value = 0.8066
+## alternative hypothesis: true mean is not equal to 50
+## 95 percent confidence interval:
+##  39.88877 58.11123
+## sample estimates:
+## mean of x 
+##        49</code></pre>
+</div>
+<div id="t-test-2-sample-t-test" class="section level2">
+<h2>t-test (2-sample t-test)</h2>
+<p>confidence interval for difference of means is not often reported</p>
+<pre class="r"><code>desert_bighorns &lt;- c(32, 44, 18, 26, 50, 33, 42, 40)
+sierra_bighorns &lt;- c(28, 31, 40, 42, 26, 29, 31)
+
+t.test(x = desert_bighorns, y = sierra_bighorns)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  desert_bighorns and sierra_bighorns
+## t = 0.73441, df = 11.532, p-value = 0.4774
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -6.329454 12.722311
+## sample estimates:
+## mean of x mean of y 
+##  35.62500  32.42857</code></pre>
+</div>
 
 
 
